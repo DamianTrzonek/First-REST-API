@@ -1,5 +1,6 @@
 package com.crud.tasks.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,9 +9,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class TrelloCardDto {
-    private String name;
-    private String description;
-    private String pos;
-    private String listId;
 
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("description")
+    private String description;
+
+    @JsonProperty("pos")
+    private String pos;
+
+    @JsonProperty("listId")
+    private String listId;
 }
