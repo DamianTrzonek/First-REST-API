@@ -1,33 +1,24 @@
 package com.crud.tasks.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloListDto {
-
-    @JsonProperty("id")
+public class TrelloList {
     private String id;
-
-    @JsonProperty("name")
     private String name;
-
-    @JsonProperty("closed")
     private boolean isClosed;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TrelloListDto that = (TrelloListDto) o;
+        TrelloList that = (TrelloList) o;
         return isClosed == that.isClosed &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name);

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,4 +23,14 @@ public class TrelloBoardDto {
 
     @JsonProperty("lists")
     private List<TrelloListDto> lists;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TrelloBoardDto that = (TrelloBoardDto) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(lists, that.lists);
+    }
 }
