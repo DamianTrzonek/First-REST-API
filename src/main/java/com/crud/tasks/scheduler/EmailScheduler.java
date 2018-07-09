@@ -33,6 +33,5 @@ public class EmailScheduler {
                 SUBJECT,
                 message)
         );
-
     }
 }

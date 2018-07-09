@@ -31,9 +31,9 @@ private TrelloMapper trelloMapper;
         lists.add(new TrelloList("testId", "testName", false));
         boards.add(new TrelloBoard("testId", "testName", lists));
         //When
-        List<TrelloBoard> testBoard =  trelloMapper.mapToBoards(boardDto);
+        List<TrelloBoard> testBoardList =  trelloMapper.mapToBoards(boardDto);
         //Then
-        Assert.assertEquals(testBoard, boards);
+        Assert.assertEquals(testBoardList, boards);
     }
 
     @Test
