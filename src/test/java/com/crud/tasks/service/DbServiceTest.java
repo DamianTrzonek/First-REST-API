@@ -43,29 +43,31 @@ private TaskRepository repository;
         dbService.deleteAllTasks();
     }
 
-    /*@Test
+    @Test
     public void getTask() {
         dbService.deleteAllTasks();
         //Given
         Task task = new Task(1L, "test task", "testing db service");
-        Long taskId = task.getId();
-        repository.save(task);
+        Task savedTask = repository.save(task);
         //When
-        Optional<Task> testTask = dbService.getTask(taskId);
+        Optional<Task> testTask = dbService.getTask(savedTask.getId());
         //Then
+        assertEquals("test task", testTask.get().getTitle());
+        assertEquals("testing db service", testTask.get().getContent());
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void deleteTask() {
+        dbService.deleteAllTasks();
         //Given
         Task task = new Task(22L, "testing task", "you know");
-        dbService.saveTask(task);
-        Long taskId = task.getId();
+        Task createdTask = dbService.saveTask(task);
+        Long createdTaskId = createdTask.getId();
         //When
-        dbService.deleteTask(taskId);
+        dbService.deleteTask(createdTaskId);
         //Then
         List<Task> taskList = dbService.getAllTasks();
-        assertNull(taskList);
-    }*/
+        assertTrue(taskList.isEmpty());
+    }
 }
