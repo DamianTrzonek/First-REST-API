@@ -47,7 +47,7 @@ private TrelloMapper trelloMapper;
         List<TrelloListDto> listDto = new ArrayList<>();
         listDto.add(new TrelloListDto("id", "name", false));
         List<TrelloBoardDto> boardDto = new ArrayList<>();
-        boardDto.add(new TrelloBoardDto("id", "name", listDto));
+        boardDto.add(new TrelloBoardDto("name", "id", listDto));
         //When
         List<TrelloBoardDto> testBoardDto = trelloMapper.mapToBoardsDto(board);
         //Then
